@@ -27,26 +27,17 @@ function start() {
     setTimeout(() => {
       if (count==40 ) {
         youWin();
-      } else if (daysRemaining<45){
+      } else if (canvas.childElementCount < gameOverNumber || daysRemaining==45){
         virusPop();
         game();
       } else {
         gameOver();
-      } if (canvas.childElementCount > gameOverNumber  ){
-        gameOver2();
       }
     }, randomTime);  
   };
 
   const gameOver = () => {
-    endScreen.innerHTML = `<div class="gameOver">Perdu! Tu n'as plus de munitions! <br/>score : ${count} </div>`;
-    endScreen.style.visibility = 'visible';
-    endScreen.style.opacity = '1';
-    loopPlay = false;
-  };
-
-  const gameOver2 = () => {
-    endScreen.innerHTML = `<div class="gameOver">Perdu! Tu as mis trop de temps!<br/>score : ${count} </div>`;
+    endScreen.innerHTML = `<div class="gameOver">Perdu! Retentes ta chance! <br/>score : ${count} </div>`;
     endScreen.style.visibility = 'visible';
     endScreen.style.opacity = '1';
     loopPlay = false;
